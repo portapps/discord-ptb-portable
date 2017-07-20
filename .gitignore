@@ -1,0 +1,12 @@
+# Intellij
+/.idea
+/*.iml
+
+# App
+/.dev
+/bin
+/res/*.pspimage
+/vendor
+/*.syso
+/*.exe
+/versioninfo.json
