@@ -1,8 +1,8 @@
-# Support [![](https://isitmaintained.com/badge/resolution/crazy-max/discord-portable.svg)](https://isitmaintained.com/project/crazy-max/discord-portable)
+# Support [![](https://isitmaintained.com/badge/resolution/crazy-max/discord-ptb-portable.svg)](https://isitmaintained.com/project/crazy-max/discord-ptb-portable)
 
 ## Reporting an issue
 
-First search for [existing issues](https://github.com/crazy-max/discord-portable/issues?utf8=%E2%9C%93&q=). If it did not help you, [create a new issue](https://github.com/crazy-max/discord-portable/issues/new) based on this template :
+First search for [existing issues](https://github.com/crazy-max/discord-ptb-portable/issues?utf8=%E2%9C%93&q=). If it did not help you, [create a new issue](https://github.com/crazy-max/discord-ptb-portable/issues/new) based on this template :
 
 ```
 ### Behaviour
@@ -33,7 +33,7 @@ First search for [existing issues](https://github.com/crazy-max/discord-portable
 
 ### Logs
 
-Join the log file `discord-portable.log` to this issue.
+Join the log file `discord-ptb-portable.log` to this issue.
 ```
 
 ## Closure policy
