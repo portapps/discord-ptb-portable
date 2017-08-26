@@ -50,14 +50,6 @@ func main() {
 	log.Info("Starting " + NAME + "...")
 	log.Info("Current path:", currentPath)
 
-	// Init vars
-	appExe := path.Join(currentPath, "Update.exe")
-	dataPath := path.Join(currentPath, "data")
-	symlinkPath := path.Clean(path.Join(os.Getenv("APPDATA"), APP_DATA_FOLDER))
-	log.Info("App executable:", appExe)
-	log.Info("Data path:", dataPath)
-	log.Info("Symlink path:", symlinkPath)
-
 	// Find app folder
 	log.Info("Lookup app folder in:", currentPath)
 	appPath := ""
@@ -74,6 +66,14 @@ func main() {
 	} else {
 		log.Error("App path does not exist")
 	}
+
+	// Init vars
+	appExe := path.Join(currentPath, "Update.exe")
+	dataPath := path.Join(currentPath, "data")
+	symlinkPath := path.Clean(path.Join(os.Getenv("APPDATA"), APP_DATA_FOLDER))
+	log.Info("App executable:", appExe)
+	log.Info("Data path:", dataPath)
+	log.Info("Symlink path:", symlinkPath)
 
 	// Create data folder
 	if _, err := os.Stat(dataPath); os.IsNotExist(err) {
@@ -122,9 +122,9 @@ func main() {
 		log.Error("Symlink:", err)
 	}
 	/*err = os.Symlink(dataPath, symlinkPath)
-	  if err != nil {
-	    log.Error(err)
-	  }*/
+	if err != nil {
+	  log.Error(err)
+	}*/
 
 	// Launch
 	log.Infof("Launch %s...", APP_NAME)
@@ -142,7 +142,53 @@ func main() {
 	cmd.Wait()
 }
 
-// src: https://gist.github.com/m4ng0squ4sh/92462b38df26839a3ca324697c8cba04
+// src : https://gist.github.com/crazy-max/e50ee72138bb184baf8d1b6e81983f13
+func copyDir(src string, dst string) (err error) {
+	src = filepath.Clean(src)
+	dst = filepath.Clean(dst)
+
+	si, err := os.Stat(src)
+	if err != nil {
+		return err
+	}
+	if !si.IsDir() {
+		return fmt.Errorf("src is not a directory: %s", src)
+	}
+
+	_, err = os.Stat(dst)
+	if err != nil && !os.IsNotExist(err) {
+		return
+	}
+
+	err = os.MkdirAll(dst, si.Mode())
+	if err != nil {
+		return
+	}
+
+	entries, err := ioutil.ReadDir(src)
+	if err != nil {
+		return
+	}
+
+	for _, entry := range entries {
+		srcPath := filepath.Join(src, entry.Name())
+		dstPath := filepath.Join(dst, entry.Name())
+		if entry.IsDir() {
+			err = copyDir(srcPath, dstPath)
+			if err != nil {
+				return
+			}
+		} else {
+			err = copyFile(srcPath, dstPath)
+			if err != nil {
+				return
+			}
+		}
+	}
+
+	return
+}
+
 func copyFile(src, dst string) (err error) {
 	in, err := os.Open(src)
 	if err != nil {
@@ -178,53 +224,6 @@ func copyFile(src, dst string) (err error) {
 	err = os.Chmod(dst, si.Mode())
 	if err != nil {
 		return
-	}
-
-	return
-}
-
-// src: https://gist.github.com/m4ng0squ4sh/92462b38df26839a3ca324697c8cba04
-func copyDir(src string, dst string) (err error) {
-	src = filepath.Clean(src)
-	dst = filepath.Clean(dst)
-
-	si, err := os.Stat(src)
-	if err != nil {
-		return err
-	}
-	if !si.IsDir() {
-		return fmt.Errorf("source is not a directory: %s", src)
-	}
-
-	_, err = os.Stat(dst)
-	if err != nil && !os.IsNotExist(err) {
-		return
-	}
-
-	err = os.MkdirAll(dst, si.Mode())
-	if err != nil {
-		return
-	}
-
-	entries, err := ioutil.ReadDir(src)
-	if err != nil {
-		return
-	}
-
-	for _, entry := range entries {
-		srcPath := filepath.Join(src, entry.Name())
-		dstPath := filepath.Join(dst, entry.Name())
-		if entry.IsDir() {
-			err = copyDir(srcPath, dstPath)
-			if err != nil {
-				return
-			}
-		} else {
-			err = copyFile(srcPath, dstPath)
-			if err != nil {
-				return
-			}
-		}
 	}
 
 	return
