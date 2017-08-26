@@ -12,10 +12,10 @@
 
 ## About
 
-A single EXE created with [Golang](https://golang.org/) to make [DiscordPTB (Public Test Build)](https://discordapp.com) portable on Windows systems.<br />
+A single EXE written in [Golang](https://golang.org/) to make [DiscordPTB (Public Test Build)](https://discordapp.com) portable on Windows systems.<br />
 Tested on Windows 7, Windows 8.1 and Windows 10.
 
-> 💡 Stable portable version of Discord is available here : https://github.com/crazy-max/discord-portable
+> 💡 Stable portable version of Discord is available [here](https://github.com/crazy-max/discord-portable)
 
 ## Installation
 
