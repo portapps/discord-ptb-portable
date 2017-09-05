@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.34-4 (2017/09/04)
+## 0.0.34-4 (2017/09/05)
 
 * New logger
 * Override USERPROFILE env var instead of using symlink to APPDATA to store data
