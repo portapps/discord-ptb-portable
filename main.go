@@ -4,17 +4,13 @@
 package main
 
 import (
-	"fmt"
-	"io"
 	"io/ioutil"
 	"os"
 	"os/exec"
-	"path"
 	"path/filepath"
 	"strings"
-	"syscall"
 
-	logging "github.com/op/go-logging"
+	"github.com/google/logger"
 )
 
 const (
@@ -24,207 +20,83 @@ const (
 	APP_PROCESS     = "DiscordPTB.exe"
 )
 
-var (
-	log       = logging.MustGetLogger(NAME)
-	logFormat = logging.MustStringFormatter(`%{time:2006-01-02 15:04:05} %{level:.4s} - %{message}`)
-)
-
 func main() {
 	// Current path
 	currentPath, err := filepath.Abs(filepath.Dir(os.Args[0]))
 	if err != nil {
-		log.Error("Current path:", err)
+		logger.Error("Current path:", err)
 	}
 
 	// Log file
-	logfile, err := os.OpenFile(path.Join(currentPath, NAME+".log"), os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
+	logfile, err := os.OpenFile(pathJoin(currentPath, NAME+".log"), os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
 	if err != nil {
-		log.Error("Log file:", err)
+		logger.Error("Log file:", err)
 	}
+	defer logfile.Close()
 
 	// Init logger
-	logBackendStdout := logging.NewBackendFormatter(logging.NewLogBackend(os.Stdout, "", 0), logFormat)
-	logBackendFile := logging.NewBackendFormatter(logging.NewLogBackend(logfile, "", 0), logFormat)
-	logging.SetBackend(logBackendStdout, logBackendFile)
-	log.Info("--------")
-	log.Info("Starting " + NAME + "...")
-	log.Info("Current path:", currentPath)
+	logger.Init(NAME, false, false, logfile)
+	logger.Info("--------")
+	logger.Infof("Starting %s...", NAME)
+	logger.Infof("Current path: %s", currentPath)
 
 	// Find app folder
-	log.Info("Lookup app folder in:", currentPath)
+	logger.Infof("Lookup app folder in: %s", currentPath)
 	appPath := ""
 	rootFiles, _ := ioutil.ReadDir(currentPath)
 	for _, f := range rootFiles {
 		if strings.HasPrefix(f.Name(), "app-") && f.IsDir() {
-			log.Info("App folder found:", f.Name())
-			appPath = path.Join(currentPath, f.Name())
+			logger.Infof("App folder found: %s", f.Name())
+			appPath = pathJoin(currentPath, f.Name())
 			break
 		}
 	}
 	if _, err := os.Stat(appPath); err == nil {
-		log.Info("App path:", appPath)
+		logger.Infof("App path: %s", appPath)
 	} else {
-		log.Error("App path does not exist")
+		logger.Error("App path does not exist")
 	}
 
 	// Init vars
-	appExe := path.Join(currentPath, "Update.exe")
-	dataPath := path.Join(currentPath, "data")
-	symlinkPath := path.Clean(path.Join(os.Getenv("APPDATA"), APP_DATA_FOLDER))
-	log.Info("App executable:", appExe)
-	log.Info("Data path:", dataPath)
-	log.Info("Symlink path:", symlinkPath)
+	appExe := pathJoin(currentPath, "Update.exe")
+	dataPath := pathJoin(currentPath, "data")
+	dataAppPath := pathJoin(dataPath, "AppData", "Roaming", APP_DATA_FOLDER)
+	logger.Infof("App executable: %s", appExe)
+	logger.Infof("Data path: %s", dataPath)
 
 	// Create data folder
-	if _, err := os.Stat(dataPath); os.IsNotExist(err) {
-		log.Info("Create data folder...", dataPath)
-		err = os.Mkdir(dataPath, 777)
-		if err != nil {
-			log.Error("Create data folder:", err)
-		}
-	}
-
-	// Check old data folder
-	if _, err := os.Stat(symlinkPath); err == nil {
-		fi, err := os.Lstat(symlinkPath)
-		if err != nil {
-			log.Error("Symlink lstat:", err)
-		}
-		if fi.Mode()&os.ModeSymlink != os.ModeSymlink {
-			// Copy old data folder
-			log.Info("Copy old data from", symlinkPath)
-			err = copyDir(symlinkPath, dataPath)
-			if err != nil {
-				log.Error("Copying old data folder:", err)
-			}
-
-			// Rename old data folder
-			log.Info("Chmod old data folder...")
-			err = os.Chmod(symlinkPath, 0777)
-			if err != nil {
-				log.Error("Chmod old data folder:", err)
-			}
-
-			log.Info("Rename old data folder to", symlinkPath+"_old")
-			err = os.Rename(symlinkPath, symlinkPath+"_old")
-			if err != nil {
-				log.Error("Renaming old data folder:", err)
-			}
-		}
-	}
-
-	// Create symlink
-	log.Info("Create symlink:", symlinkPath)
-	os.Remove(symlinkPath)
-	cmd := exec.Command("cmd", "/c", "mklink", "/J", strings.Replace(symlinkPath, "/", "\\", -1), strings.Replace(dataPath, "/", "\\", -1))
-	cmd.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
-	if err := cmd.Run(); err != nil {
-		log.Error("Symlink:", err)
-	}
-	/*err = os.Symlink(dataPath, symlinkPath)
+	logger.Infof("Create data folder %s...", dataAppPath)
+	err = os.MkdirAll(dataAppPath, 777)
 	if err != nil {
-	  log.Error(err)
-	}*/
+		logger.Error("Create data folder:", err)
+	}
+
+	// Override USERPROFILE env var
+	if err := os.Setenv("USERPROFILE", dataPath); err != nil {
+		logger.Error("Cannot set USERPROFILE env var:", err)
+	}
 
 	// Launch
-	log.Infof("Launch %s...", APP_NAME)
-	cmd = exec.Command(appExe, "--processStart", APP_PROCESS)
-	cmd.Dir = appPath
+	logger.Infof("Launch %s...", APP_NAME)
+	execApp := exec.Command(appExe, "--processStart", APP_PROCESS)
+	execApp.Dir = appPath
 
 	defer logfile.Close()
-	cmd.Stdout = logfile
-	cmd.Stderr = logfile
+	execApp.Stdout = logfile
+	execApp.Stderr = logfile
 
-	if err := cmd.Start(); err != nil {
-		log.Error("Cmd Start:", err)
+	if err := execApp.Start(); err != nil {
+		logger.Error("Cmd Start:", err)
 	}
 
-	cmd.Wait()
+	execApp.Wait()
 }
 
-// src : https://gist.github.com/crazy-max/e50ee72138bb184baf8d1b6e81983f13
-func copyDir(src string, dst string) (err error) {
-	src = filepath.Clean(src)
-	dst = filepath.Clean(dst)
-
-	si, err := os.Stat(src)
-	if err != nil {
-		return err
-	}
-	if !si.IsDir() {
-		return fmt.Errorf("src is not a directory: %s", src)
-	}
-
-	_, err = os.Stat(dst)
-	if err != nil && !os.IsNotExist(err) {
-		return
-	}
-
-	err = os.MkdirAll(dst, si.Mode())
-	if err != nil {
-		return
-	}
-
-	entries, err := ioutil.ReadDir(src)
-	if err != nil {
-		return
-	}
-
-	for _, entry := range entries {
-		srcPath := filepath.Join(src, entry.Name())
-		dstPath := filepath.Join(dst, entry.Name())
-		if entry.IsDir() {
-			err = copyDir(srcPath, dstPath)
-			if err != nil {
-				return
-			}
-		} else {
-			err = copyFile(srcPath, dstPath)
-			if err != nil {
-				return
-			}
+func pathJoin(elem ...string) string {
+	for i, e := range elem {
+		if e != "" {
+			return strings.Join(elem[i:], `\`)
 		}
 	}
-
-	return
-}
-
-func copyFile(src, dst string) (err error) {
-	in, err := os.Open(src)
-	if err != nil {
-		return
-	}
-	defer in.Close()
-
-	out, err := os.Create(dst)
-	if err != nil {
-		return
-	}
-	defer func() {
-		if e := out.Close(); e != nil {
-			err = e
-		}
-	}()
-
-	_, err = io.Copy(out, in)
-	if err != nil {
-		return
-	}
-
-	err = out.Sync()
-	if err != nil {
-		return
-	}
-
-	si, err := os.Stat(src)
-	if err != nil {
-		return
-	}
-
-	err = os.Chmod(dst, si.Mode())
-	if err != nil {
-		return
-	}
-
-	return
+	return ""
 }
