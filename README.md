@@ -29,8 +29,7 @@ There are different kinds of artifacts :
 
 For a **fresh installation**, install `discord-ptb-portable-x.x.x-x-setup.exe` where you want then run `discord-ptb-portable.exe`.
 
-If **you have already installed DiscordPTB from the original setup**, do the same thing as a fresh installation and run `discord-ptb-portable.exe` a first time.<br />
-The data located in `%APPDATA%\discordptb` will be moved in the `data` folder.<br />
+If **you have already installed DiscordPTB from the original setup**, do the same thing as a fresh installation and move the data located in `%APPDATA%\discordptb` to `data\AppData\Roaming\discordptb` then run `discord-ptb-portable.exe`.<br />
 Then you can [remove](https://support.microsoft.com/en-us/instantanswers/ce7ba88b-4e95-4354-b807-35732db36c4d/repair-or-remove-programs) DiscordPTB from your computer.
 
 **For an upgrade**, simply download and install the [latest setup](https://github.com/crazy-max/discord-ptb-portable/releases/latest).
