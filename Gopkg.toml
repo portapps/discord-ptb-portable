@@ -1,0 +1,7 @@
+[metadata]
+package = "github.com/crazy-max/discord-ptb-portable"
+homepage = "https://github.com/crazy-max/discord-ptb-portable"
+license = "MIT"
+
+[[constraint]]
+  name = "github.com/google/logger"
