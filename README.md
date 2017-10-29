@@ -34,6 +34,25 @@ Then you can [remove](https://support.microsoft.com/en-us/instantanswers/ce7ba88
 
 **For an upgrade**, simply download and install the [latest setup](https://github.com/crazy-max/discord-ptb-portable/releases/latest).
 
+### BetterDiscord
+
+DiscordPTB Portable is also compatible with [BetterDiscord](https://betterdiscord.net).<br />
+Download the latest release of BetterDiscord, launch the setup wizard, choose the install location `discord-ptb-portable\app-x.x.x` and press `Install` :
+
+```
+Deleting old cached files
+Deleting temp path
+Downloading Resource: BetterDiscord.zip
+Extracting BetterDiscord
+node_modules doesn't exist, creating
+Extracting app.asar
+Moving BetterDiscord to resources\node_modules\
+Spicing index
+Writing index
+Finished installation, verifying installation...
+Finished installing BetterDiscord with 0 errors
+```
+
 ## How can i help ?
 
 We welcome all kinds of contributions :raised_hands:!<br />
