@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.1-6 (2017/10/29)
+
+* New release of Discord PTB : 0.3.1
+* Add info in the README about BetterDiscord
+* Switch to [Golang Dep](https://github.com/golang/dep) as dependency manager
+* Upgrade to Go 1.9.1
+
 ## 0.0.34-5 (2017/09/05)
 
 * New logger
