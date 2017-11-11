@@ -1,3 +1,5 @@
+//go:generate go get -v github.com/jteeuwen/go-bindata/go-bindata/...
+//go:generate go-bindata -pkg appdata -o src/appdata/appdata.go -prefix "data/" data/...
 //go:generate go get -v github.com/josephspurrier/goversioninfo/...
 //go:generate goversioninfo -icon=res/app-portable.ico
 
@@ -6,10 +8,10 @@ package main
 import (
 	"io/ioutil"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"strings"
 
+	"github.com/crazy-max/discord-ptb-portable/src/appdata"
 	"github.com/google/logger"
 )
 
@@ -75,6 +77,9 @@ func main() {
 	if err := os.Setenv("USERPROFILE", dataPath); err != nil {
 		logger.Error("Cannot set USERPROFILE env var:", err)
 	}
+
+	// Workaround for tray.png (see #2)
+	appdata.RestoreAssets(pathJoin(dataPath, "AppData", "Roaming"), "discord")
 
 	// Launch
 	logger.Infof("Launch %s...", APP_NAME)
