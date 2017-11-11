@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.36-7 (2017/11/11)
+
+* New release of Discord PTB : 0.0.36
+
 ## 0.0.34-6 (2017/10/29)
 
 * Add info in the README about BetterDiscord
