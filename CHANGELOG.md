@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.36-7 (2017/11/11)
+## 0.0.36-8 (2017/11/11)
 
 * New release of Discord PTB : 0.0.36
 * Workaround for Discord PTB bug (Issue #2)
