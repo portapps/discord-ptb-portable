@@ -10,7 +10,7 @@ import (
 )
 
 func init() {
-	App.Id = "discord-ptb-portable"
+	App.ID = "discord-ptb-portable"
 	App.Name = "DiscordPTB"
 	Init()
 }
@@ -25,6 +25,6 @@ func main() {
 	// Workaround for tray.png not found issue (https://github.com/portapps/discord-ptb-portable/issues/2)
 	appdata.RestoreAssets(PathJoin(App.RootDataPath, "AppData", "Roaming"), "discord")
 
-	OverrideUserprofilePath(App.RootDataPath)
+	OverrideEnv("USERPROFILE", App.RootDataPath)
 	Launch()
 }
