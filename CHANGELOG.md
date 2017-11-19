@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.37-9 (2017/11/19)
+
+* New release of Discord PTB : 0.0.37
+* Move repository to [Portapps](https://github.com/portapps) org
+
 ## 0.0.36-8 (2017/11/11)
 
 * New release of Discord PTB : 0.0.36
