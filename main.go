@@ -10,21 +10,26 @@ import (
 )
 
 func init() {
-	App.ID = "discord-ptb-portable"
-	App.Name = "DiscordPTB"
+	Papp.ID = "discord-ptb-portable"
+	Papp.Name = "DiscordPTB"
 	Init()
 }
 
 func main() {
-	App.MainPath = FindElectronMainFolder("app-")
-	App.DataPath = CreateFolder(PathJoin(App.RootDataPath, "AppData", "Roaming", "discord"))
-	App.Process = RootPathJoin("Update.exe")
-	App.Args = []string{"--processStart", "DiscordPTB.exe"}
-	App.WorkingDir = App.MainPath
+	Papp.AppPath = AppPathJoin("app")
+	Papp.DataPath = AppPathJoin("data")
+
+	electronBinPath := PathJoin(Papp.AppPath, FindElectronAppFolder("app-", Papp.AppPath))
+	roamingPath := CreateFolder(PathJoin(Papp.DataPath, "AppData", "Roaming", "discord"))
+	Log.Infof("Roaming path: %s", roamingPath)
+
+	Papp.Process = PathJoin(Papp.AppPath, "Update.exe")
+	Papp.Args = []string{"--processStart", "DiscordPTB.exe"}
+	Papp.WorkingDir = electronBinPath
 
 	// Workaround for tray.png not found issue (https://github.com/portapps/discord-ptb-portable/issues/2)
-	appdata.RestoreAssets(PathJoin(App.RootDataPath, "AppData", "Roaming"), "discord")
+	appdata.RestoreAssets(PathJoin(Papp.DataPath, "AppData", "Roaming"), "discord")
 
-	OverrideEnv("USERPROFILE", App.RootDataPath)
+	OverrideEnv("USERPROFILE", Papp.DataPath)
 	Launch()
 }
