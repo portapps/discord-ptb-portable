@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.0.37-10 (2017/11/20)
+
+* Move app to a subfolder
+* Reduce dependencies to avoid heuristic detection
+* Add UPX compression
+
+> :warning: **UPGRADE NOTES**
+> * Delete all files and folders in root folder except `data` folder.
+
 ## 0.0.37-9 (2017/11/19)
 
 * New release of Discord PTB : 0.0.37
