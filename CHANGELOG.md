@@ -1,7 +1,8 @@
 # Changelog
 
-## 0.0.37-9 (2017/11/20)
+## 0.0.38-9 (2017/11/22)
 
+* New release of Discord PTB : 0.0.38
 * Move app to a subfolder
 * Reduce dependencies to avoid heuristic detection
 * Add UPX compression
