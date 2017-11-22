@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.37-10 (2017/11/20)
+## 0.0.37-9 (2017/11/20)
 
 * Move app to a subfolder
 * Reduce dependencies to avoid heuristic detection
@@ -9,12 +9,12 @@
 > :warning: **UPGRADE NOTES**
 > * Delete all files and folders in root folder except `data` folder.
 
-## 0.0.37-9 (2017/11/19)
+## 0.0.37-8 (2017/11/19)
 
 * New release of Discord PTB : 0.0.37
 * Move repository to [Portapps](https://github.com/portapps) org
 
-## 0.0.36-8 (2017/11/11)
+## 0.0.36-7 (2017/11/11)
 
 * New release of Discord PTB : 0.0.36
 * Workaround for Discord PTB bug (Issue #2)
