@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.39-10 (2017/12/09)
+
+* New release of Discord PTB : 0.0.39
+
 ## 0.0.38-9 (2017/11/22)
 
 * New release of Discord PTB : 0.0.38
