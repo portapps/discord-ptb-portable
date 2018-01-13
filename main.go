@@ -20,8 +20,6 @@ func main() {
 	Papp.DataPath = AppPathJoin("data")
 
 	electronBinPath := PathJoin(Papp.AppPath, FindElectronAppFolder("app-", Papp.AppPath))
-	roamingPath := CreateFolder(PathJoin(Papp.DataPath, "AppData", "Roaming", "discord"))
-	Log.Infof("Roaming path: %s", roamingPath)
 
 	Papp.Process = PathJoin(Papp.AppPath, "Update.exe")
 	Papp.Args = []string{"--processStart", "DiscordPTB.exe"}
@@ -30,6 +28,5 @@ func main() {
 	// Workaround for tray.png not found issue (https://github.com/portapps/discord-ptb-portable/issues/2)
 	appdata.RestoreAssets(PathJoin(Papp.DataPath, "AppData", "Roaming"), "discord")
 
-	OverrideEnv("USERPROFILE", Papp.DataPath)
 	Launch()
 }

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.0.41-12 (2018/01/13)
+
+* Rebuild electron.asar to push data directly in `data` subfolder
+* No need to override USERPROFILE environment variable anymore
+* Allow multiple instances
+
+> :warning: **UPGRADE NOTES**
+> * Move everything in `data\AppData\Roaming\discordptb\*` to `data` folder and remove folder `data\AppData`.
+
 ## 0.0.41-11 (2018/01/12)
 
 * New release of Discord PTB : 0.0.41
