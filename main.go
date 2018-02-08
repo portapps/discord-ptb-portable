@@ -5,6 +5,8 @@
 package main
 
 import (
+	"os"
+
 	"github.com/portapps/discord-ptb-portable/src/appdata"
 	. "github.com/portapps/portapps"
 )
@@ -28,5 +30,5 @@ func main() {
 	// Workaround for tray.png not found issue (https://github.com/portapps/discord-ptb-portable/issues/2)
 	appdata.RestoreAssets(PathJoin(Papp.DataPath, "AppData", "Roaming"), "discord")
 
-	Launch()
+	Launch(os.Args[1:])
 }

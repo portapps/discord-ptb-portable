@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.41-13 (2018/02/09)
+
+* Ability to pass custom args to the portable process
+
 ## 0.0.41-12 (2018/01/13)
 
 * Rebuild electron.asar to push data directly in `data` subfolder
