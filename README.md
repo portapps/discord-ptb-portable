@@ -21,15 +21,14 @@ Tested on Windows 7, Windows 8.1 and Windows 10.
 
 There are different kinds of artifacts :
 
-* `discord-ptb-portable-{ia32,x64}-x.x.x-x-setup.exe` : Full portable release of Discord as a setup. **Recommended way**!
-* `discord-ptb-portable-{ia32,x64}-x.x.x-x.7z` : Full portable release of Discord as a 7z archive.
-* `discord-ptb-portable-{ia32,x64}.exe` : Only the portable binary (must be renamed `discord-ptb-portable.exe`)
-* `DiscordPTBSetup-{ia32,x64}-x.x.x.exe` : The original setup from the [official website](https://discordapp.com/download).
-* `DiscordPTB-{ia32,x64}-x.x.x-full.nupkg` : The original NUPKG file extracted from the original setup.
+* `discord-ptb-portable-win{32,64}-x.x.x-x-setup.exe` : Full portable release of Discord as a setup. **Recommended way**!
+* `discord-ptb-portable-win{32,64}-x.x.x-x.7z` : Full portable release of Discord as a 7z archive.
+* `discord-ptb-portable-win{32,64}.exe` : Only the portable binary (must be renamed `discord-ptb-portable.exe`)
+* `DiscordPTBSetup-win{32,64}-x.x.x.exe` : The original setup from the [official website](https://discordapp.com/download).
 
 ### Fresh installation
 
-Install `discord-ptb-portable-{ia32,x64}-x.x.x-x-setup.exe` where you want then run `discord-ptb-portable.exe`.
+Install `discord-ptb-portable-win{32,64}-x.x.x-x-setup.exe` where you want then run `discord-ptb-portable.exe`.
 
 ### App already installed
 
