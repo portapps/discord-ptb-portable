@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.41-14 (2018/02/11)
+
+* Disable host updates (Issue portapps/discord-portable#10)
+
 ## 0.0.41-13 (2018/02/09)
 
 * Ability to pass custom args to the portable process
