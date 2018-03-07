@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://github.com/portapps/discord-ptb-portable/releases/latest"><img src="https://img.shields.io/github/release/portapps/discord-ptb-portable.svg?style=flat-square" alt="GitHub release"></a>
   <a href="https://github.com/portapps/discord-ptb-portable/releases/latest"><img src="https://img.shields.io/github/downloads/portapps/discord-ptb-portable/total.svg?style=flat-square" alt="Total downloads"></a>
-  <a href="https://ci.appveyor.com/project/crazy-max/discord-ptb-portable"><img src="https://img.shields.io/appveyor/ci/crazy-max/discord-ptb-portable.svg?style=flat-square" alt="AppVeyor"></a>
+  <a href="https://ci.appveyor.com/project/portapps/discord-ptb-portable"><img src="https://img.shields.io/appveyor/ci/portapps/discord-ptb-portable.svg?style=flat-square" alt="AppVeyor"></a>
   <a href="https://goreportcard.com/report/github.com/portapps/discord-ptb-portable"><img src="https://goreportcard.com/badge/github.com/portapps/discord-ptb-portable?style=flat-square" alt="Go Report"></a>
   <a href="https://www.codacy.com/app/portapps/discord-ptb-portable"><img src="https://img.shields.io/codacy/grade/8556c9e756164889b0307dbc7282ef0a.svg?style=flat-square" alt="Code Quality"></a>
   <a href="https://beerpay.io/portapps/portapps"><img src="https://img.shields.io/beerpay/portapps/portapps.svg?style=flat-square" alt="Beerpay"></a>
