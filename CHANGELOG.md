@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.42-16 (2018/04/20)
+
+* Upgrade to Discord PTB 0.0.42
+
 ## 0.0.41-15 (2018/02/11)
 
 * Move ia32/x64 to win32/win64 for arch def
@@ -24,15 +28,15 @@
 
 ## 0.0.41-11 (2018/01/12)
 
-* New release of Discord PTB : 0.0.41
+* Upgrade to Discord PTB 0.0.41
 
 ## 0.0.39-10 (2017/12/09)
 
-* New release of Discord PTB : 0.0.39
+* Upgrade to Discord PTB 0.0.39
 
 ## 0.0.38-9 (2017/11/22)
 
-* New release of Discord PTB : 0.0.38
+* Upgrade to Discord PTB 0.0.38
 * Move app to a subfolder
 * Reduce dependencies to avoid heuristic detection
 * Add UPX compression
@@ -42,12 +46,12 @@
 
 ## 0.0.37-8 (2017/11/19)
 
-* New release of Discord PTB : 0.0.37
+* Upgrade to Discord PTB 0.0.37
 * Move repository to [Portapps](https://github.com/portapps) org
 
 ## 0.0.36-7 (2017/11/11)
 
-* New release of Discord PTB : 0.0.36
+* Upgrade to Discord PTB 0.0.36
 * Workaround for Discord PTB bug (Issue #2)
 
 ## 0.0.34-6 (2017/10/29)
@@ -74,7 +78,7 @@
 
 ## 0.0.34-2 (2017/08/09)
 
-* New release of Discord PTB : 0.0.34
+* Upgrade to Discord PTB 0.0.34
 
 ## 0.0.32-1 (2017/07/20)
 
