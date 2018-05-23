@@ -2,7 +2,7 @@
 
 ## 0.0.43-17 (2018/05/23)
 
-* New release of Discord : 0.0.42
+* Upgrade to Discord PTB 0.0.43
 * Update bootstrap script for multiInstance
 
 ## 0.0.42-16 (2018/04/20)
