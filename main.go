@@ -1,10 +1,12 @@
-//go:generate go get -v github.com/jteeuwen/go-bindata/go-bindata/...
+//go:generate go install -v github.com/kevinburke/go-bindata/go-bindata
 //go:generate go-bindata -pkg appdata -o src/appdata/appdata.go data/...
-//go:generate go get -v github.com/josephspurrier/goversioninfo/...
+//go:generate go install -v github.com/josephspurrier/goversioninfo/cmd/goversioninfo
 //go:generate goversioninfo -icon=res/papp.ico
 package main
 
 import (
+	_ "github.com/kevinburke/go-bindata"
+
 	"encoding/json"
 	"io/ioutil"
 	"os"
