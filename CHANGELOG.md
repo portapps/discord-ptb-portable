@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.43-18 (2018/10/24)
+
+* Fix Windows desktop notifications
+* Upgrade to Go 1.11
+* Use [go mod](https://golang.org/cmd/go/#hdr-Module_maintenance) instead of `dep`
+
 ## 0.0.43-17 (2018/05/23)
 
 * Upgrade to Discord PTB 0.0.43
