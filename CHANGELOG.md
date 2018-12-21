@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.44-19 (2018/12/21)
+
+* Upgrade to Discord PTB 0.0.44
+
 ## 0.0.43-18 (2018/10/24)
 
 * Fix Windows desktop notifications
