@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.46-21 (2019/01/17)
+
+* Upgrade to Discord PTB 0.0.46
+
 ## 0.0.45-20 (2019/01/10)
 
 * Upgrade to Discord PTB 0.0.45
