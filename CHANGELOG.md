@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.48-1 (2019/03/09)
+## 0.0.48-2 (2019/03/09)
 
 * Upgrade to Discord PTB 0.0.48
 * Portapps 1.20.2
