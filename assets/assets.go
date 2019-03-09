@@ -26,7 +26,7 @@ import (
 func bindataRead(data []byte, name string) ([]byte, error) {
 	gz, err := gzip.NewReader(bytes.NewBuffer(data))
 	if err != nil {
-		return nil, fmt.Errorf("Read %q: %v", name, err)
+		return nil, fmt.Errorf("read %q: %v", name, err)
 	}
 
 	var buf bytes.Buffer
@@ -34,7 +34,7 @@ func bindataRead(data []byte, name string) ([]byte, error) {
 	clErr := gz.Close()
 
 	if err != nil {
-		return nil, fmt.Errorf("Read %q: %v", name, err)
+		return nil, fmt.Errorf("read %q: %v", name, err)
 	}
 	if clErr != nil {
 		return nil, err
@@ -90,7 +90,7 @@ func dataTrayConnectedPng() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "data/tray-connected.png", size: 276, mode: os.FileMode(438), modTime: time.Unix(1510364151, 0)}
+	info := bindataFileInfo{name: "data/tray-connected.png", size: 276, mode: os.FileMode(0666), modTime: time.Unix(1510364151, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x7d, 0x5, 0x28, 0x78, 0xfb, 0xc1, 0xfc, 0xa9, 0xbe, 0xb, 0xd6, 0x13, 0xf2, 0x32, 0xd4, 0xfd, 0x80, 0xfe, 0x66, 0x8e, 0x2f, 0x52, 0xb2, 0x8e, 0xd3, 0x73, 0x7a, 0xbb, 0x20, 0x55, 0x7b, 0x79}}
 	return a, nil
 }
@@ -110,7 +110,7 @@ func dataTrayDeafenedPng() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "data/tray-deafened.png", size: 301, mode: os.FileMode(438), modTime: time.Unix(1510364151, 0)}
+	info := bindataFileInfo{name: "data/tray-deafened.png", size: 301, mode: os.FileMode(0666), modTime: time.Unix(1510364151, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x28, 0xd6, 0xd, 0xc9, 0x15, 0x88, 0xeb, 0x88, 0x94, 0x37, 0xb1, 0xca, 0x28, 0x85, 0x38, 0xff, 0x96, 0xec, 0x62, 0x7c, 0x4, 0x68, 0xa7, 0x8c, 0xc8, 0x9a, 0x32, 0x3b, 0xab, 0x43, 0x8d, 0xe8}}
 	return a, nil
 }
@@ -130,7 +130,7 @@ func dataTrayMutedPng() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "data/tray-muted.png", size: 287, mode: os.FileMode(438), modTime: time.Unix(1510364151, 0)}
+	info := bindataFileInfo{name: "data/tray-muted.png", size: 287, mode: os.FileMode(0666), modTime: time.Unix(1510364151, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xb, 0x4b, 0x64, 0x52, 0xb0, 0x3d, 0xc9, 0x27, 0xdd, 0x5e, 0xa9, 0xd1, 0xa5, 0x8f, 0x3d, 0xb5, 0xc6, 0x35, 0x41, 0xd7, 0xa4, 0xb7, 0x19, 0x39, 0xe2, 0xd5, 0x9e, 0xe7, 0xd9, 0x9f, 0x7e, 0x2}}
 	return a, nil
 }
@@ -150,7 +150,7 @@ func dataTraySpeakingPng() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "data/tray-speaking.png", size: 248, mode: os.FileMode(438), modTime: time.Unix(1510364151, 0)}
+	info := bindataFileInfo{name: "data/tray-speaking.png", size: 248, mode: os.FileMode(0666), modTime: time.Unix(1510364151, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x81, 0x57, 0x40, 0x74, 0x74, 0x4e, 0xdf, 0x41, 0x2f, 0x33, 0xd6, 0x9, 0xb2, 0x3, 0x4d, 0x20, 0x48, 0x97, 0x1c, 0x9d, 0xb2, 0xc6, 0x56, 0xb8, 0x3, 0x76, 0xcd, 0x2a, 0xfe, 0x67, 0x90, 0x94}}
 	return a, nil
 }
@@ -170,7 +170,7 @@ func dataTrayUnreadPng() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "data/tray-unread.png", size: 1374, mode: os.FileMode(438), modTime: time.Unix(1510364256, 0)}
+	info := bindataFileInfo{name: "data/tray-unread.png", size: 1374, mode: os.FileMode(0666), modTime: time.Unix(1510364256, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xff, 0xa5, 0xff, 0xf7, 0xeb, 0xb, 0x91, 0x33, 0x8d, 0x4a, 0xda, 0x71, 0x56, 0xbc, 0x34, 0x2e, 0x2a, 0x2e, 0x1c, 0xfc, 0x12, 0x65, 0xdf, 0xb2, 0xcf, 0x96, 0x55, 0x22, 0xca, 0x43, 0xe2, 0x64}}
 	return a, nil
 }
@@ -190,7 +190,7 @@ func dataTrayPng() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "data/tray.png", size: 1334, mode: os.FileMode(438), modTime: time.Unix(1510364256, 0)}
+	info := bindataFileInfo{name: "data/tray.png", size: 1334, mode: os.FileMode(0666), modTime: time.Unix(1510364256, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x1c, 0x2b, 0xbd, 0x7c, 0x7d, 0xd2, 0xf9, 0x1a, 0x11, 0x47, 0x1e, 0x40, 0x5c, 0xf2, 0xea, 0x88, 0x61, 0x57, 0xbf, 0xcd, 0xa6, 0x60, 0xd0, 0xa, 0x93, 0x73, 0x90, 0x18, 0xfd, 0x41, 0x3f, 0xd5}}
 	return a, nil
 }
@@ -210,7 +210,7 @@ func discordptbLnk() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "DiscordPTB.lnk", size: 1945, mode: os.FileMode(438), modTime: time.Unix(1540371719, 0)}
+	info := bindataFileInfo{name: "DiscordPTB.lnk", size: 1945, mode: os.FileMode(0666), modTime: time.Unix(1540371719, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x1, 0x33, 0x71, 0xa5, 0xf9, 0xda, 0xd5, 0x2b, 0x18, 0xa6, 0xdf, 0x20, 0xdc, 0xbb, 0x36, 0x60, 0xca, 0x5b, 0xe0, 0x90, 0xba, 0x5d, 0x8a, 0xc0, 0x8f, 0x55, 0x91, 0xa6, 0xc9, 0xd5, 0xf3, 0xdb}}
 	return a, nil
 }
