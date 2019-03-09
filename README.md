@@ -1,4 +1,4 @@
-<p align="center"><a href="https://portapps.io/app/discord-ptb-portable" target="_blank"><img width="100" src="https://github.com/portapps/discord-ptb-portable/blob/master/res/papp.png"></a></p>
+<p align="center"><a href="https://portapps.io/app/discord-ptb-portable/" target="_blank"><img width="100" src="https://github.com/portapps/discord-ptb-portable/blob/master/res/papp.png"></a></p>
 
 <p align="center">
   <a href="https://portapps.io/app/discord-ptb-portable/#download"><img src="https://img.shields.io/github/release/portapps/discord-ptb-portable.svg?style=flat-square" alt="GitHub release"></a>
@@ -12,7 +12,7 @@
 ## About
 
 [DiscordPTB (Public Test Build)](https://discordapp.com) portable app made with 🚀 [Portapps](https://portapps.io).<br />
-Documentation and downloads can be found on https://portapps.io/app/discord-ptb-portable
+Documentation and downloads can be found on https://portapps.io/app/discord-ptb-portable/
 
 ## How can I help ?
 
