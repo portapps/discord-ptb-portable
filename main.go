@@ -31,6 +31,7 @@ func init() {
 }
 
 func main() {
+	utl.CreateFolder(app.DataPath)
 	electronBinPath := utl.PathJoin(app.AppPath, utl.FindElectronAppFolder("app-", app.AppPath))
 
 	app.Process = utl.PathJoin(electronBinPath, "DiscordPTB.exe")
