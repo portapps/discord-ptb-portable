@@ -7,35 +7,35 @@
 
 ## 0.0.48-2 (2019/03/09)
 
-* Upgrade to Discord PTB 0.0.48
+* Discord PTB 0.0.48
 * Portapps 1.20.2
 
 ## 0.0.46-21 (2019/01/18)
 
-* Upgrade to Discord PTB 0.0.46
+* Discord PTB 0.0.46
 
 ## 0.0.45-20 (2019/01/10)
 
-* Upgrade to Discord PTB 0.0.45
+* Discord PTB 0.0.45
 
 ## 0.0.44-19 (2018/12/21)
 
-* Upgrade to Discord PTB 0.0.44
+* Discord PTB 0.0.44
 
 ## 0.0.43-18 (2018/10/24)
 
 * Fix Windows desktop notifications
-* Upgrade to Go 1.11
+* Go 1.11
 * Use [go mod](https://golang.org/cmd/go/#hdr-Module_maintenance) instead of `dep`
 
 ## 0.0.43-17 (2018/05/23)
 
-* Upgrade to Discord PTB 0.0.43
+* Discord PTB 0.0.43
 * Update bootstrap script for multiInstance
 
 ## 0.0.42-16 (2018/04/20)
 
-* Upgrade to Discord PTB 0.0.42
+* Discord PTB 0.0.42
 
 ## 0.0.41-15 (2018/02/11)
 
@@ -61,15 +61,15 @@
 
 ## 0.0.41-11 (2018/01/12)
 
-* Upgrade to Discord PTB 0.0.41
+* Discord PTB 0.0.41
 
 ## 0.0.39-10 (2017/12/09)
 
-* Upgrade to Discord PTB 0.0.39
+* Discord PTB 0.0.39
 
 ## 0.0.38-9 (2017/11/22)
 
-* Upgrade to Discord PTB 0.0.38
+* Discord PTB 0.0.38
 * Move app to a subfolder
 * Reduce dependencies to avoid heuristic detection
 * Add UPX compression
@@ -79,19 +79,19 @@
 
 ## 0.0.37-8 (2017/11/19)
 
-* Upgrade to Discord PTB 0.0.37
+* Discord PTB 0.0.37
 * Move repository to [Portapps](https://github.com/portapps) org
 
 ## 0.0.36-7 (2017/11/11)
 
-* Upgrade to Discord PTB 0.0.36
+* Discord PTB 0.0.36
 * Workaround for Discord PTB bug (Issue #2)
 
 ## 0.0.34-6 (2017/10/29)
 
 * Add info in the README about BetterDiscord
 * Switch to [Golang Dep](https://github.com/golang/dep) as dependency manager
-* Upgrade to Go 1.9.1
+* Go 1.9.1
 
 ## 0.0.34-5 (2017/09/05)
 
@@ -106,12 +106,12 @@
 
 ## 0.0.34-3 (2017/08/26)
 
-* Upgrade to Go 1.9
+* Go 1.9
 * Add support guidelines
 
 ## 0.0.34-2 (2017/08/09)
 
-* Upgrade to Discord PTB 0.0.34
+* Discord PTB 0.0.34
 
 ## 0.0.32-1 (2017/07/20)
 
