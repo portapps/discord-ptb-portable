@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.49-3 (2019/09/05)
+
+* Discord PTB 0.0.49
+* Portapps 1.26.0
+
 ## 0.0.48-3 (2019/03/17)
 
 * Create `data` folder at first launch
