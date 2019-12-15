@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.49-4 (2019/12/15)
+
+* Portapps 1.31.0
+* Add cleanup config
+
 ## 0.0.49-3 (2019/09/05)
 
 * Discord PTB 0.0.49
