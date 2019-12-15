@@ -16,15 +16,25 @@ import (
 	"github.com/portapps/portapps/pkg/utl"
 )
 
+type config struct {
+	Cleanup bool `yaml:"cleanup" mapstructure:"cleanup"`
+}
+
 var (
 	app *App
+	cfg *config
 )
 
 func init() {
 	var err error
 
+	// Default config
+	cfg = &config{
+		Cleanup: false,
+	}
+
 	// Init app
-	if app, err = New("discord-ptb-portable", "DiscordPTB"); err != nil {
+	if app, err = NewWithCfg("discord-ptb-portable", "DiscordPTB", cfg); err != nil {
 		Log.Fatal().Err(err).Msg("Cannot initialize application. See log file for more info.")
 	}
 }
@@ -35,6 +45,15 @@ func main() {
 
 	app.Process = utl.PathJoin(electronBinPath, "DiscordPTB.exe")
 	app.WorkingDir = electronBinPath
+
+	// Cleanup on exit
+	if cfg.Cleanup {
+		defer func() {
+			utl.Cleanup([]string{
+				path.Join(os.Getenv("APPDATA"), "discordptb"),
+			})
+		}()
+	}
 
 	// Update settings
 	settingsPath := utl.PathJoin(app.DataPath, "settings.json")
