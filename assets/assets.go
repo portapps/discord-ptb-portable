@@ -307,18 +307,12 @@ func AssetNames() []string {
 // _bindata is a table, holding each asset generator, mapped to its name.
 var _bindata = map[string]func() (*asset, error){
 	"data/tray-connected.png": dataTrayConnectedPng,
-
-	"data/tray-deafened.png": dataTrayDeafenedPng,
-
-	"data/tray-muted.png": dataTrayMutedPng,
-
-	"data/tray-speaking.png": dataTraySpeakingPng,
-
-	"data/tray-unread.png": dataTrayUnreadPng,
-
-	"data/tray.png": dataTrayPng,
-
-	"DiscordPTB.lnk": discordptbLnk,
+	"data/tray-deafened.png":  dataTrayDeafenedPng,
+	"data/tray-muted.png":     dataTrayMutedPng,
+	"data/tray-speaking.png":  dataTraySpeakingPng,
+	"data/tray-unread.png":    dataTrayUnreadPng,
+	"data/tray.png":           dataTrayPng,
+	"DiscordPTB.lnk":          discordptbLnk,
 }
 
 // AssetDir returns the file names below a certain
