@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.53-9 (2020/08/03)
+
+* Discord PTB 0.0.53
+* Portapps 2.5.0
+
 ## 0.0.52-8 (2020/04/09)
 
 * Discord PTB 0.0.52
