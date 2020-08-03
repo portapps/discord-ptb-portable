@@ -1,5 +1,5 @@
 //go:generate go install -v github.com/kevinburke/go-bindata/go-bindata
-//go:generate go-bindata -prefix res/ -pkg assets -o assets/assets.go res/data/... res/DiscordPTB.lnk
+//go:generate go-bindata -prefix res/ -pkg assets -o assets/assets.go res/DiscordPTB.lnk
 //go:generate go install -v github.com/josephspurrier/goversioninfo/cmd/goversioninfo
 //go:generate goversioninfo -icon=res/papp.ico -manifest=res/papp.manifest
 package main
@@ -46,6 +46,9 @@ func main() {
 
 	app.Process = utl.PathJoin(electronBinPath, "DiscordPTB.exe")
 	app.WorkingDir = electronBinPath
+	app.Args = []string{
+		"--user-data-dir=" + app.DataPath,
+	}
 
 	// Cleanup on exit
 	if cfg.Cleanup {
@@ -80,11 +83,6 @@ func main() {
 				log.Error().Err(err).Msg("Write settings")
 			}
 		}
-	}
-
-	// Workaround for tray.png not found issue (https://github.com/portapps/discord-ptb-portable/issues/2)
-	if err := assets.RestoreAssets(app.RootPath, "data"); err != nil {
-		log.Error().Err(err).Msg("Cannot restore data assets")
 	}
 
 	// Copy default shortcut
