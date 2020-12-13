@@ -55,6 +55,7 @@ func main() {
 		defer func() {
 			utl.Cleanup([]string{
 				path.Join(os.Getenv("APPDATA"), "discordptb"),
+				path.Join(os.Getenv("TEMP"), "Discord Crashes"),
 			})
 		}()
 	}
