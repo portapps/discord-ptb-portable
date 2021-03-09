@@ -13,6 +13,7 @@ import (
 	"github.com/portapps/discord-ptb-portable/assets"
 	"github.com/portapps/portapps/v3"
 	"github.com/portapps/portapps/v3/pkg/log"
+	"github.com/portapps/portapps/v3/pkg/registry"
 	"github.com/portapps/portapps/v3/pkg/shortcut"
 	"github.com/portapps/portapps/v3/pkg/utl"
 )
@@ -53,6 +54,15 @@ func main() {
 	// Cleanup on exit
 	if cfg.Cleanup {
 		defer func() {
+			regKey := registry.Key{
+				Key:  `HKCU\SOFTWARE\DiscordPTB`,
+				Arch: "32",
+			}
+			if regKey.Exists() {
+				if err := regKey.Delete(true); err != nil {
+					log.Error().Err(err).Msg("Cannot remove registry key")
+				}
+			}
 			utl.Cleanup([]string{
 				path.Join(os.Getenv("APPDATA"), "discordptb"),
 				path.Join(os.Getenv("TEMP"), "Discord Crashes"),
