@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.58-14 (2021/03/09)
+
+* Discord PTB 0.0.58
+* Cleanup reg key (portapps/discord-portable#57)
+* Portapps 3.3.0
+
 ## 0.0.56-13 (2020/12/26)
 
 * Discord PTB 0.0.56
