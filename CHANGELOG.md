@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.60-15 (2021/04/27)
+
+* Discord PTB 0.0.60
+* Portapps 3.3.0
+
 ## 0.0.58-14 (2021/03/09)
 
 * Discord PTB 0.0.58
