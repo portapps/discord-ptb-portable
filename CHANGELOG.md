@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1020-21 (2022/11/20)
+
+* Discord PTB 1.0.1020
+* Bump github.com/kevinburke/go-bindata from 3.23.0+incompatible to 3.24.0+incompatible
+
 ## 1.0.1017-20 (2022/08/13)
 
 * Discord PTB 1.0.1017
