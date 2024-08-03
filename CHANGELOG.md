@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1095-27 (2024/08/03)
+
+* Discord PTB 1.0.1095 (no more 32-bit release)
+
 ## 1.0.1085-26 (2024/08/03)
 
 * Discord PTB 1.0.1085
