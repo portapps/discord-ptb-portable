@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1137-28 (2025/04/06)
+
+* Discord PTB 1.0.1137
+* Portapps 3.16.0
+
 ## 1.0.1095-27 (2024/08/03)
 
 * Discord PTB 1.0.1095 (no more 32-bit release)
