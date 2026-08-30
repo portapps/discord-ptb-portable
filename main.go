@@ -7,16 +7,15 @@ import (
 	"encoding/json"
 	"io"
 	"os"
-	"path"
 	"path/filepath"
 	"strings"
 
 	"github.com/portapps/discord-ptb-portable/assets"
 	"github.com/portapps/portapps/v3"
+	"github.com/portapps/portapps/v3/pkg/files"
 	"github.com/portapps/portapps/v3/pkg/log"
 	"github.com/portapps/portapps/v3/pkg/registry"
 	"github.com/portapps/portapps/v3/pkg/shortcut"
-	"github.com/portapps/portapps/v3/pkg/utl"
 )
 
 type config struct {
@@ -43,7 +42,9 @@ func init() {
 }
 
 func main() {
-	utl.CreateFolder(app.DataPath)
+	if err := os.MkdirAll(app.DataPath, 0o755); err != nil {
+		log.Fatal().Err(err).Msg("Cannot create data path")
+	}
 	electronAppPath := app.ElectronAppPath()
 
 	app.Process = filepath.Join(electronAppPath, "DiscordPTB.exe")
@@ -64,10 +65,10 @@ func main() {
 					log.Error().Err(err).Msg("Cannot remove registry key")
 				}
 			}
-			utl.Cleanup([]string{
-				path.Join(os.Getenv("APPDATA"), "discordptb"),
-				path.Join(os.Getenv("TEMP"), "Discord Crashes"),
-			})
+			files.Cleanup(
+				filepath.Join(os.Getenv("APPDATA"), "discordptb"),
+				filepath.Join(os.Getenv("TEMP"), "Discord Crashes"),
+			)
 		}()
 	}
 
@@ -121,7 +122,7 @@ func main() {
 	}
 
 	// Copy default shortcut
-	shortcutPath := path.Join(utl.StartMenuPath(), "Discord PTB Portable.lnk")
+	shortcutPath := filepath.Join(files.StartMenuPath(), "Discord PTB Portable.lnk")
 	defaultShortcut, err := assets.Asset("DiscordPTB.lnk")
 	if err != nil {
 		log.Error().Err(err).Msg("Cannot load asset DiscordPTB.lnk")
